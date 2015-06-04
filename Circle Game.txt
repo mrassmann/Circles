@@ -1,0 +1,18 @@
+Circle
+  -Circle attributes
+    -Size
+    -Color
+    -Destoryed
+    -Speed
+    -Center Point
+  -Render onto the GameActivity
+
+GameActivity
+  -Score
+  -Current Level
+
+Level
+  -Number Of Circles
+  -Speed of Circles
+  -Current Level
+  -Background Color
