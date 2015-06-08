@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -15,32 +16,70 @@ import android.view.View;
 public class Circle{
     int radius;
     Color color;
-    int decaySpeed;
+    double decaySpeed;
     Point center;
+    boolean flag = true;
 
-    public Circle(int _radius, int _decaySpeed, Point _center){
+    public Circle(){
+        radius = 50;
+        center = new Point(200,200);
+    }
+
+    public Circle(int _radius, double _decaySpeed, Point _center){
         radius = _radius;
         decaySpeed = _decaySpeed;
         center = _center;
     }
 
-    public Circle(int _radius, int _decaySpeed,Color _color, Point _center){
+    public Circle(int _radius, double _decaySpeed, Color _color, Point _center){
         radius = _radius;
         decaySpeed = _decaySpeed;
         color= _color;
         center = _center;
     }
-    public void render(){
+    public void render(Canvas canvas){
         //renders the circles
-        Canvas grid = new Canvas(Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888));
+        Log.d("flag",flag+"");
+        if(!flag){
+            Log.d("render","Entered Render");
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.RED);
+            canvas.drawCircle(center.x, center.y, radius, paint);
+        }
+        flag = false;
 
 
     }
     // Checks whether the player has touched a circle
-    public boolean isDestoryed(){
+    public boolean isDestroyed(){
         //Using the Distance Formula see if the distance to the center of the circle is
         //greater than the radius
         return true;
+    }
+
+    public Point getCenter(){
+        return center;
+    }
+
+    public int getRadius(){
+        return radius;
+    }
+
+    public Color getColor(){
+        return color;
+    }
+
+    public void setCenter(Point point){
+        center = point;
+    }
+
+    public void setRadius(int rad){
+        radius = rad;
+    }
+
+    public void setColor(Color col){
+        color = col;
     }
 }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -14,13 +15,11 @@ public class GameView extends View {
     public GameView(Context context){
         super(context);
     }
-    @Override
+
     protected void onDraw(Canvas canvas){
+        Log.d("onDraw","In onDraw");
         super.onDraw(canvas);
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.BLACK);
-        canvas.drawCircle(100,100,50,paint);
+        GameActivity.test.render(canvas);
     }
 
 }
