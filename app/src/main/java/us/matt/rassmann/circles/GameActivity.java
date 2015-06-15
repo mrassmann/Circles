@@ -16,13 +16,15 @@ public class GameActivity extends FragmentActivity {
     int x;
     int y;
     GameView gameView;
-    Canvas canvas = new Canvas();
     public static Circle test;
+    public Level lev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gameView = new GameView(this);
         test = new Circle();
+        lev = new Level();
+        lev.makeCircleArray();
 
         setContentView(gameView);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -34,12 +36,20 @@ public class GameActivity extends FragmentActivity {
     public boolean onTouchEvent(MotionEvent event) {
          x = (int) event.getX();
          y = (int) event.getY();
-        Point point = new Point(x,y);
-        test.setCenter(point);
-        test.setRadius(50);
+        //Point point = new Point(x,y);
+        //test.setCenter(point);
+        //test.setRadius(50);
         Log.d("onTouchEvent", "In touch event");
+        if(test.isDestroyed()){
+
+        }
         gameView.invalidate();
+
         return true;
+    }
+
+    public Level getLevel(){
+        return lev;
     }
 
 

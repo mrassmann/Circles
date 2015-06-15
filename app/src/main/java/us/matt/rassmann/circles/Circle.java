@@ -21,8 +21,8 @@ public class Circle{
     boolean flag = true;
 
     public Circle(){
-        radius = 50;
-        center = new Point(200,200);
+        radius = 100;
+        center = new Point(400,400);
     }
 
     public Circle(int _radius, double _decaySpeed, Point _center){
@@ -55,6 +55,7 @@ public class Circle{
     public boolean isDestroyed(){
         //Using the Distance Formula see if the distance to the center of the circle is
         //greater than the radius
+
         return true;
     }
 
